@@ -8,7 +8,7 @@ import type { ComponentType } from 'react';
  *
  * @example
  * ```ts
- * import { defineBlock } from '@zevcommerce/theme-sdk';
+ * import { defineBlock } from '@zevop/theme-sdk';
  *
  * export default defineBlock({
  *   component: HeadingBlock,

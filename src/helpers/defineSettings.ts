@@ -6,7 +6,7 @@ import type { SettingsSchemaGroup } from '../types/manifest';
  *
  * @example
  * ```ts
- * import { defineSettings } from '@zevcommerce/theme-sdk';
+ * import { defineSettings } from '@zevop/theme-sdk';
  *
  * export const settingsSchema = defineSettings([
  *   {
