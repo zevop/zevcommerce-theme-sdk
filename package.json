@@ -1,5 +1,5 @@
 {
-  "name": "@zevop/theme-sdk",
+  "name": "@zevcommerce/theme-sdk",
   "version": "1.0.0",
   "description": "SDK for building ZevCommerce themes — types, helpers, and constants",
   "main": "dist/index.js",

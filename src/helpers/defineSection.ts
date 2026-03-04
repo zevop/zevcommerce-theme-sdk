@@ -8,7 +8,7 @@ import type { ComponentType } from 'react';
  *
  * @example
  * ```ts
- * import { defineSection } from '@zevop/theme-sdk';
+ * import { defineSection } from '@zevcommerce/theme-sdk';
  *
  * export default defineSection({
  *   component: HeroSection,

@@ -8,7 +8,7 @@ import type { SchemaField } from '../types/schema';
  *
  * @example
  * ```ts
- * import { withColumnSettings } from '@zevop/theme-sdk';
+ * import { withColumnSettings } from '@zevcommerce/theme-sdk';
  *
  * const schema = {
  *   type: 'footer',

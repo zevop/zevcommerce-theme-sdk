@@ -1,9 +1,9 @@
 /**
- * @zevop/theme-sdk/storefront-api
+ * @zevcommerce/theme-sdk/storefront-api
  *
  * Type stubs for the storefrontend runtime API.
  *
- * Theme packages import from '@zevop/storefront-api' in their
+ * Theme packages import from '@zevcommerce/storefront-api' in their
  * section/block components. At build time in the storefrontend, this
  * is aliased to the actual implementations via webpack/turbopack alias.
  *

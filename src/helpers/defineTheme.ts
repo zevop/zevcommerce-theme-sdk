@@ -6,7 +6,7 @@ import type { ThemeManifest } from '../types/manifest';
  *
  * @example
  * ```ts
- * import { defineTheme } from '@zevop/theme-sdk';
+ * import { defineTheme } from '@zevcommerce/theme-sdk';
  *
  * export default defineTheme({
  *   handle: 'my-theme',
