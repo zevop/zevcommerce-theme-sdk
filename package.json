@@ -1,0 +1,50 @@
+{
+  "name": "@zevcommerce/theme-sdk",
+  "version": "1.0.0",
+  "description": "SDK for building ZevCommerce themes — types, helpers, and constants",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./storefront-api": {
+      "types": "./dist/storefront-api.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "zevcommerce",
+    "theme",
+    "sdk",
+    "e-commerce",
+    "storefront"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zevop/zevcommerce-theme-sdk.git"
+  }
+}
