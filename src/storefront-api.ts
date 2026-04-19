@@ -40,16 +40,65 @@ export declare function BlockRenderer(props: {
 
 // ---- Product Context ----
 
+/**
+ * A variant as it appears inside a theme. The storefrontend enriches
+ * raw API data with render-ready flags BEFORE it reaches a theme —
+ * themes must read `availableForSale`, `onSale`, etc. rather than
+ * recomputing from raw `price` / `inventoryLevels`. Raw inventory
+ * fields are intentionally NOT part of this contract.
+ */
+export interface StorefrontVariant {
+  id: string;
+  title: string;
+  sku?: string | null;
+  barcode?: string | null;
+  price: string | number;
+  compareAtPrice?: string | number | null;
+  selectedOptions?: Array<{ name: string; value: string }> | null;
+  /** True when this specific variant is purchasable right now. */
+  availableForSale: boolean;
+  /** True when compareAtPrice > price. */
+  onSale: boolean;
+  /** 1–99 if on sale, null otherwise. */
+  salePercentage?: number | null;
+  // Permissive catch-all for fields themes shouldn't need yet.
+  [key: string]: any;
+}
+
+/**
+ * A product as it appears inside a theme. Pre-computed fields are
+ * authoritative — don't re-derive. Use cases like "is this product
+ * available" or "is it on sale" are storefrontend decisions, not
+ * theme concerns.
+ */
+export interface StorefrontProduct {
+  id: string;
+  title: string;
+  slug: string;
+  description?: string | null;
+  vendor?: string | null;
+  productType?: string | null;
+  tags?: string[];
+  media?: Array<{ url: string; alt?: string; position?: number }> | null;
+  variants: StorefrontVariant[];
+  /** True when at least one variant is available. */
+  availableForSale: boolean;
+  /** True when at least one variant is on sale. */
+  onSale: boolean;
+  [key: string]: any;
+}
+
 export declare function useProduct(): {
-  product: any;
-  selectedVariant: any;
+  product: StorefrontProduct | null;
+  selectedVariant: StorefrontVariant | null;
   quantity: number;
+  loading: boolean;
   setQuantity: (q: number) => void;
-  setSelectedVariant: (v: any) => void;
+  setSelectedVariant: (v: StorefrontVariant) => void;
 };
 
 export declare function ProductDataProvider(props: {
-  product: any;
+  product: StorefrontProduct;
   children: ReactNode;
 }): ReactNode;
 
