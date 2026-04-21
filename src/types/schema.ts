@@ -17,7 +17,15 @@ export type SchemaFieldType =
   | 'collection_picker'
   | 'font_picker'
   | 'header'
-  | 'paragraph';
+  | 'paragraph'
+  /**
+   * Array of objects with a nested sub-schema. Used for things like
+   * hero slides or accordion items — any "add another one of these"
+   * surface inside a single setting. Values are stored as an array
+   * of objects at `settings[id]`. Each item's shape is defined by
+   * the `fields` array on the schema entry.
+   */
+  | 'repeater';
 
 /**
  * A single field in a settings schema.
@@ -67,4 +75,26 @@ export interface SchemaField {
   max?: number;
   /** For 'range' and 'number' types: step increment */
   step?: number;
+
+  /**
+   * Repeater-only: the sub-schema applied to each item in the array.
+   * Only `text`, `textarea`, `image`, `color`, `checkbox`, `select`,
+   * `range`, `number`, `link_list`, `product_picker`,
+   * `collection_picker`, and `header`/`paragraph` types are valid
+   * inside a repeater — nested repeaters are not supported.
+   */
+  fields?: SchemaField[];
+
+  /**
+   * Repeater-only: label shown on each item's collapsed card header.
+   * Supports `{{field}}` interpolation so the card can display its
+   * own title (e.g. `{{heading}}` or `Slide {{@index}}`).
+   */
+  item_label?: string;
+
+  /** Repeater-only: cap on the number of items merchants can add. */
+  max_items?: number;
+
+  /** Repeater-only: the template used when the merchant clicks "Add". */
+  add_button_label?: string;
 }
